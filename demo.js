@@ -1,8 +1,6 @@
 'use strict'; 
 (function() {
 
-
-  
 function person () {
   	this.firstName = "Jim",
   	this.lastName = "moubayed"
