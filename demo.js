@@ -13,7 +13,7 @@ function person () {
 let anotherPerson = new person;
 
 const myPerson = {
-  myName : "nicolaos",
+  myName : "nicolaos2",
   myLast : "moubayed",
     myfun() {
     return "hello fun";
