@@ -6,30 +6,38 @@
       font-size:3em;
     }
   </style>
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 <title> Title goes here
 </title>
+
 </head>
 
 <body>
   <div>
     <h1 id='output'></h1>
     <div id="main">
+      
       <div id="quotebox">
-      <p id="quote" class="quote-box">
-        placeholder for quote
-      </p>
+      <p id="quote" class="quote-box"></p>
       </div>
       <button onclick="ShowNewQuote()">Generate New Quote</button>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-      </p>
+      <br><br><br><br><br><br><br>
+      
+      <p id="name-submitted"></p>
+      <form id="myForm">
+      <label for="fname">First name:</label>
+      <input type="text" id="fname" name="fname"><br><br>
+      <input type="submit" value="Submit"  onclick="submitMyForm(); return false">
+      </form>
+
+
+
     </div>
   </div>
-  
-  <button onclick="change_bg_func()">Copy Text</button>
+
   
   <script src='demo.js'></script>
-  
+
 
 
 </body>

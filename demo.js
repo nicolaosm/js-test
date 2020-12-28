@@ -27,6 +27,18 @@ ShowNewQuote();
 console.log(quotesArray);
 
 
+
+
+function submitMyForm() {
+  console.log("form submitted");
+ //document.getElementById("myForm").submit();
+ console.log(document.getElementById("fname").value);
+ document.getElementById("name-submitted").innerHTML = document.getElementById("fname").value;
+}
+
+
+
+
 function change_bg_func() {
   document.getElementById("main").style.backgroundColor = "red";
 }
