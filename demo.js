@@ -1,35 +1,35 @@
 'use strict'; 
 
-function change_bg_func() {
-  document.getElementById("main").style.backgroundColor = "red";
-}
+let quotesArray = [];
 
+function ShowNewQuote(){
 fetch("https://type.fit/api/quotes")
 .then(function(response) {
   return response.json();
 })
 .then(function(data) {
   let quotesArray = data;
-  console.log(quotesArray);
-  getRandomQuote(quotesArray);
+ // console.log(quotesArray);
+
+let randomNumber = Math.floor(Math.random() * quotesArray.length);
+let quote = quotesArray[randomNumber];
+let content = quote.text
+let author = quote.author;
+
+var randomColor = Math.floor(Math.random()*16777215).toString(16);
+document.getElementById("quote").innerHTML = content + " - " + author;
+document.getElementById("quotebox").style.backgroundColor = "#" + randomColor;
 });
-
-
-
-function getRandomQuote(quotesArray) {
- let item = quotesArray[Math.floor(Math.random() * quotesArray.length)].text;
- 
- //let item = quotesArray[1];
-  
-  document.getElementById("quote").innerHTML = item;
-  
 }
 
+ShowNewQuote();
+
+console.log(quotesArray);
 
 
-
-
-
+function change_bg_func() {
+  document.getElementById("main").style.backgroundColor = "red";
+}
 
 
 (function() {
@@ -224,7 +224,7 @@ console.log(human.prototype);
 console.log(nick.__proto__.age);
 console.log(nick.age);
 
-document.getElementById("main").addEventListener("click", change_bg_func);
+//document.getElementById("main").addEventListener("click", change_bg_func);
 
 
 
