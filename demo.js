@@ -1,4 +1,37 @@
 'use strict'; 
+
+function change_bg_func() {
+  document.getElementById("main").style.backgroundColor = "red";
+}
+
+fetch("https://type.fit/api/quotes")
+.then(function(response) {
+  return response.json();
+})
+.then(function(data) {
+  let quotesArray = data;
+  console.log(quotesArray);
+  getRandomQuote(quotesArray);
+});
+
+
+
+function getRandomQuote(quotesArray) {
+ let item = quotesArray[Math.floor(Math.random() * quotesArray.length)].text;
+ 
+ //let item = quotesArray[1];
+  
+  document.getElementById("quote").innerHTML = item;
+  
+}
+
+
+
+
+
+
+
+
 (function() {
 
 function person () {
@@ -158,8 +191,6 @@ function isObject(obj)
 
 
 
-
-
 function human(fname, lname) {
   this.fname = fname;
   this.lname = lname;
@@ -192,6 +223,11 @@ document.getElementById("output").innerHTML = nick.fullName;
 console.log(human.prototype);
 console.log(nick.__proto__.age);
 console.log(nick.age);
+
+document.getElementById("main").addEventListener("click", change_bg_func);
+
+
+
 
 
 
