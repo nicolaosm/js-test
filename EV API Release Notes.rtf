@@ -1,0 +1,488 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2577
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fswiss\fcharset0 Helvetica;\f2\fswiss\fcharset0 Helvetica-Oblique;
+\f3\fswiss\fcharset0 Helvetica-BoldOblique;}
+{\colortbl;\red255\green255\blue255;\red191\green191\blue191;}
+{\*\expandedcolortbl;;\csgray\c79525;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww27800\viewh15580\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf0 \ul \ulc0 RELEASE NOTES
+\fs24 \
+\
+# EV Custom Plugin V1.0
+\f1\b0 \ulnone \
+\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 To show webinar button:\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 <a id="everwebinar_form_exist" class="ewa_show_popup" href="# \'93 data-webinar="2">CLICK HERE FOR WEBINAR</a>\
+\
+\
+
+\f0\b \ul # EV Custom Plugin V2.0\ulnone \
+\
+
+\f1\b0 - Fixed issue with Gravity form showing dead page iframe\
+\
+- Fixed issue where timezone labels where not correct because of timezone change (standard/daylight)\
+\
+- Fixed issue, when convertflow is not loaded the form will now redirect correctly after submission.\
+\
+- all css and font files that were fetched from webinarjam servers are not being loaded from within the plugin
+\f0\b \
+\
+
+\f1\b0 - Allow Everwebinar API to tag users based on tag id we put inside form code and on the page itself using data-itg and data-rtg.\
+For example:  <a id="everwebinar_form_exist" class="ewa_show_popup" href="# \'93 data-webinar="2" data-itg=\'931525,5771\'94 data-rtg=\'936177\'94>CLICK HERE FOR WEBINAR</a>\
+\
+- Save user\'92s webinar link and user\'92s selected timezone in custom fields in Infusionsoft.\
+\
+- Option to remove \'93timezone\'94 field in form or to preselect first option automatically. If data-timezone-empty did not exist in the code then it will appear as a normal dropdown.\
+\pard\pardeftab720\partightenfactor0
+\cf0 data-timezone-field="show" (this will show normally like original iframe)\
+data-timezone-field="hide" (This will hide timezone field and submit default value)\
+data-timezone-field="preselected" (This will show timezone field but its already selected with first value)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Example to hide timezone: <a id="everwebinar_form_exist" class="ewa_show_popup" href="# \'93 data-webinar="2" data-timezone-field="hide">CLICK HERE FOR WEBINAR</a>\
+Example to preselect timezone: <a id="everwebinar_form_exist" class="ewa_show_popup" href="# \'93 data-webinar="2" data-timezone-field="preselected">CLICK HERE FOR WEBINAR</a>\
+\
+- Ability to prepopulate Email field and Name Field based on URL Query or based on Cookie in browser. The URL query or the cookie name are setup from the backend settings page.\
+\
+- Ability to add custom thank you page by specifying thank you page url in button code like this:\
+data-thankyou="https://scfstaging.wpengine.com/testthankyou/"\
+On the thank you page itself, we can show several values with the following shortcodes:\
+[ews_webinar_data var="time"]\
+[ews_webinar_data var="date"]\
+[ews_webinar_data var="timezone"]\
+[ews_webinar_data var="url"]\
+\
+The thank you page will be generated with a unique encrypted query that holds all those information. So the same page can be used for different webinars or pages because each will have different values coming form the query string with key \'93ewa\'94\
+\
+\
+\
+
+\f0\b \ul # EV Custom Plugin V2.0.1\
+
+\f1\b0 \ulnone \
+- Fixed some UI and layout on older devices.\
+- Form now shows above convertflow banner.\
+\
+\
+\
+\
+
+\f0\b \ul # EV Custom Plugin V2.0.2\
+
+\f1\b0 \ulnone \
+- Removed custom fonts from loading (roboto)\
+\
+\
+\
+
+\f0\b \ul # EV Custom Plugin V3.0
+\f1\b0 \ulnone \
+\
+## Features\
+1. Make EV form a normal form, not in iFrame.\
+2. Allow adding a check box for forms from link code. We can add checkbox to the code and it will add a checkbox and its text at the bottom of the form right before the submit button. If checkbox exist then user has to check it before being able to submit form. Example <a class="ewa_show_popup" href="# \'93 data-webinar="2" itg=\'931525,5771\'94 check-box=\'93I agree to terms and conditions\'94>CLICK HERE FOR WEBINAR</a> \
+3. Ability to change title of the form by adding it to the code.  If title=\'93live\'94 then we will fetch the title of the webinar straight from Everwebinar Api. \
+Example: <a class="ewa_show_popup" href="# \'93 data-webinar="2" itg=\'931525,5771\'94 Title=\'93join this free webinar\'94>CLICK HERE FOR WEBINAR</a>\
+4. Add shortcode option to say if checkbox is mandatory or not. checkbox=\'93required\'94 and by default its not required.\
+5. Add note under each tag field and under each cookie https://share.getcloudapp.com/P8uE0EOE\
+6. In settings view, have filter button for every box \'93Show all selected\'94 and a search bar for each list of urls https://share.getcloudapp.com/WnuGeGn4\
+7. Add element ID for each form field. date-field, timezone-field, name-field, email-field, date-selected-field, timezone-selected-field\
+\
+## Bugs:\
+- No time shows up at all.\
+- Loading screen doesnt show.\
+- Gravity form is too slow to submit - is it  loading a new page everytime we submit?\
+- Remove Google Analytics from loading because we already loading it on the page.\
+\
+\
+
+\f0\b \ul # EV Custom Plugin V4.0
+\f1\b0 \ulnone \
+\
+## Features\
+1. Change in settings structure: We should not control settings based on pages from now on. We should have a new settings page where we create GROUPS. Each group will have a set of settings that will be applied to it. Same settings as existing ones we have. So we can create multiple groups, and each group will have its own settings. And this group will get an ID. This ID we should put it in the webinar code on the front end like this: data-webinar-settings=\'931\'94. This means that this webinar form will use the settings from group 1 that we have created in the backend. We shout have a button to collapse each group and to duplicate it.\
+2. Add custom field for webinar ID\
+3. Add options to add icons to the form fields to look like this: https://share.getcloudapp.com/rRu9o9bj\
+These icons will show by default unless we add to code data-icons=\'93no\'94\
+4. Put main settings on seperate page: https://share.getcloudapp.com/2NuXjXjX\
+5. Show tag names when choosing tags (like in WPfusions) https://share.getcloudapp.com/L1u7Qb0R\
+\
+## Bugs\
+- GA was sending page view hit on pages that had the form. Now its removed so that we\'92d only send one page view hit that we\'92re doing sitewide (via GTM).\
+\
+\
+\
+
+\f0\b \ul # EV Custom Plugin V5.0\
+
+\f1\b0 \ulnone \
+## Features\
+1. In each group we need to add a section called tracking\
+2. In tracking section add existing GA tracking option (Plus Callback)\
+3. In tracking section add Facebook Custom Event Submission (similar to GA) (Plus Callback)\
+4. In tracking section add timeout number in Seconds before redirection\
+5. In tracking section, add VWO tracking submission (Similar to GA too)\
+6. In tracking section add Converflow + callback using ajax  https://api.jquery.com/ajaxStop/\
+7. Show hidden field should work for groups too\
+8. Add search for fields that don\'92t have it\
+9. In groups, allow us to add options with radio buttons for users and link each option to Infusionsoft tag.\
+10. Also add checkbox to make those radio button required\
+11. Added ability to Log all entries on a log page.\
+\
+\
+\
+
+\f0\b \ul # EV Custom Plugin V6.0\
+
+\f1\b0 \ulnone \
+## Features\
+1. Make Tracking Events conditional based on if user is new or existing in infusionsoft.\
+2. Plugin is becoming Bigger with every version, so we need to write clear documentation and explanation for every function\
+3. Make gravity form not override certain fields that we choose.\
+4. Add date filters, event filter and search to logger\
+5. Allow Hidden Form fields to be visible and linked to infusionsoft field\
+6. After submission, show custom message to user based on their existing infusionsoft tags.\
+\
+#Bugs\
+1. Fixed issue where multiple forms were loaded on the pages since we were loading the main settings form and the groups settings form. This was creating multiple forms with multiple fields so GTM was not able to fill the fields correctly.\
+2. Made api calls to infusionsoft much faster using oauth2.\
+3. Fixed a bug where we couldn\'92t save checkboxes for enabled pages next to the custom fields in main settings.\
+\
+\
+
+\f0\b \ul # EV Custom Plugin V6.1\
+
+\f1\b0 \ulnone \
+#Bugs\
+Fixed UI issue where three dots where not showing correctly on the form fields.\
+\
+\
+
+\f0\b \ul # EV Custom Plugin V6.2\
+
+\f1\b0 \ulnone \
+#Bugs\
+Fixed issue where \'93
+\f0\b Execute code when form loaded\'94 
+\f1\b0 field in main settings page was not saving the data.\
+\
+\
+
+\f0\b \ul # EV Custom Plugin V7.0
+\f1\b0 \ulnone \
+* Allow visible forms via shortcode that can take all other parameters too. (It shouldnt load slowly it should show immediately)\
+* Show default fields on backend and allow the rearrange\
+* All plugin uses Oauth calls to infusionsoft - We should stop relying on legacy\
+* loading wheel should appear immediately instead of showing squares first.\
+\
+
+\f0\b \ul # EV Custom Plugin V7.1\
+
+\f1\b0 \ulnone * Bug fixes and UI tweaks\
+\
+
+\f0\b \ul # EV Custom Plugin V7.2\
+
+\f1\b0 \ulnone * Fixed IS token not refreshing automatically and causing form to stop working and admin side to stop being accessible\
+\
+
+\f0\b \ul # EV Custom Plugin V7.3\
+
+\f1\b0 \ulnone * Added functionality and hooks so that we can add rules to the WPFUSION form submission via Gravity form. Now we can choose which fields will update/override, and which ones wont.\
+\
+
+\f0\b \ul # EV Custom Plugin V7.4\
+
+\f1\b0 \ulnone * Fixed Issue where ev popup form is not opening on firefox (help from rakesh)\
+\
+
+\f0\b \ul # EV Custom Plugin V7.5\
+
+\f1\b0 \ulnone * Fixed issue where Infusionsoft was not refreshing authentication token properly.
+\f0\b \ul \
+
+\f1\b0 \ulnone * Issue that was fixed by rakesh in 7.4 is now reverted and fixed with Muhammad\'92s approach- They both work fine.\
+* A wordpress cron is added every hour to check if token is expired and to refresh if it is.\
+\
+\
+\
+
+\f0\b\fs36 \ul DOCUMENTATION\
+\
+
+\fs24 # Registration Form Code:\
+\
+
+\f1\b0 \ulnone <a id="everwebinar_form_exist" class="ewa_show_popup" href="# \'93 data-webinar="2">CLICK HERE FOR WEBINAR</a>
+\f0\b\fs36 \ul \
+\
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx2880
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx5760
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \ulnone Parameter
+\f1\b0 \cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+
+\f0\b \cf0 Description
+\f1\b0 \cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+
+\f0\b \cf0 Values
+\f1\b0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx2880
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx5760
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 class\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 Constant. Has to be 
+\f0\b ewa_show_popup
+\f1\b0  to work. 
+\f2\i Required
+\f1\i0 \cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 -\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx2880
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx5760
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 data-webinar\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 Webinar ID in Everwebinar. 
+\f2\i Required.
+\f1\i0 \cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 An integer from Everwebinar.\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx2880
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx5760
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 data-itg\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 ID of Infusionsoft tag to add upon registration\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 An integer from Infusionsoft. Empty by default.\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx2880
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx5760
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 data-rtg\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 ID of Infusionsoft tag to remove upon registration\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 An integer from Infusionsoft. Empty by default.\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx2880
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx5760
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 data-timezone-field\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 Options for the timezone field.\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+
+\f0\b \cf0 show
+\f1\b0  (default value when not specified) This will show the timezone field normally and allow user to press and choose his timefield.\
+
+\f0\b hide 
+\f1\b0 (will hide the timezone field and select the first in the list to send to everwebinar)
+\f0\b \
+preselected
+\f1\b0  (will preselect the first timezone value from the list)\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx2880
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx5760
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 data-thankyou\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 Specifies what is the url of the custom thank you page that the user will be redirected to after registration.\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+
+\f3\i\b \cf0 none/empty
+\f0\i0  
+\f1\b0 (default) This will result in user being redirected to the thank you page of Everwebinar\
+\
+
+\f3\i\b URL
+\f0\i0  
+\f1\b0 - We can specify any url to redirect the user to.\
+\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx2880
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx5760
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 data-title\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 Specifies the title on top of the registration form.
+\f0\b \cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+
+\f3\i \cf0 empty
+\f1\i0\b0  (default) will show \'93Register For This Free Event\'94\
+\
+
+\f0\b live 
+\f1\b0 - Will show the name of the webinar itself by fetching it from Everwebinar API\
+\
+
+\f3\i\b any text
+\f2\b0  - 
+\f1\i0 We can insert any text that will show as title on top of the form.\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx2880
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx5760
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 data-checkbox\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 Adds a checkbox to the registration form.\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+
+\f3\i\b \cf0 none/empty
+\f0\i0  
+\f1\b0 (default) This will not show any checkbox in the registration form.\
+\
+
+\f3\i\b any text
+\f2\b0  - 
+\f1\i0 We can insert any text that will show as text for a registration box at the bottom of the form, right before the submit button.\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx2880
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx5760
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 data-checkbox-type\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 Choose options for the checkbox. Wether its required or not.\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+
+\f0\b \cf0 not-required
+\f1\b0  (default) - this will make the checkbox not required to be ticked so that user can submit the form.
+\f0\b \
+\
+required
+\f1\b0  - this will make the checkbox required to be ticked before the user can submit the form.\
+\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx2880
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx5760
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 data-icons\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 Adds icons to the fields of the EV form. (V4)\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+
+\f0\b \cf0 not-required
+\f1\b0  (default) - by default the icons will be showing\
+\
+
+\f0\b no
+\f1\b0  - the icons won\'92t show.
+\f0\b \
+
+\f1\b0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx2880
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx5760
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 data_form_style\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 Turns the styling of the form from normal to minimal (V7)\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+
+\f0\b \cf0 not-required
+\f1\b0  (default) - by default form will be a rich form with all titles\
+\
+
+\f0\b minimal
+\f1\b0  - the form and its field will look minimal with no title or field titles.\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx2880
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx5760
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 data-timezone-convert\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 Removes \'93convert to timezone\'94 button under date field (V7)\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+
+\f0\b \cf0 not-required
+\f1\b0  (default) - by default form will show \'93convert to timezone\'94 url.\
+\
+
+\f0\b no
+\f1\b0  - the form will not show \'93convert to timezone\'94 url.\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx2880
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx5760
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 data-class\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 Adds class name to the form (V7)\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+
+\f0\b \cf0 not-required
+\f1\b0  (default) - by default the embedded form will have a default class of \'93ewa_embedded_form\'94 and the popup form will have \'93ewa_popup_form\'94\
+\
+
+\f3\i\b any text
+\f1\i0\b0  - the form will will take that string as a class\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx2880
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx5760
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 [webinar_form_embedded]\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 Adds an embedded form (V7)\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 Example: [ews_webinar_form data_webinar="3" data_itg="1296" data_rtg="6091" data_webinar_settings="1" data_timezone_field="hide" data_icons="yes" data_thankyou="" data_title="" data_checkbox="" data_checkbox_required="" data_form_style="minimal"]\cell \lastrow\row
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl336\slmult1\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\
+\
+\
+\
+\
+}
